@@ -16,7 +16,7 @@ class MyState extends ChangeNotifier {
       text = body['text'];
     } catch (err) {
       text = "ERROR!";
-      print(err);
+      //print(err);
     }
 
     notifyListeners();
