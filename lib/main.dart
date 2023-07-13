@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
         title: Text(widget.title),
       ),
       body: Container(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.fromLTRB(0, 12, 0, 12),
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -55,14 +55,31 @@ class _MainPageState extends State<MainPage> {
               child: buildTitle(),
             ),
             Align(
-              alignment: const Alignment(0, 0.8),
+              alignment: const Alignment(0, 0.9),
               child: buildActions(),
             ),
+            Positioned(
+              left: -32,
+              top: 20,
+              child: buildBadge(),
+            )
           ],
         ),
       ),
     );
   }
+
+  Widget buildBadge() => RotationTransition(
+        turns: const AlwaysStoppedAnimation(-45 / 360),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 32),
+          color: Colors.white,
+          child: const Text(
+            "Popular",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+      );
 
   Widget buildActions() => Container(
         color: Colors.white,
@@ -96,17 +113,30 @@ class _MainPageState extends State<MainPage> {
       );
 
   Widget buildTitle() {
-    return (const Column(
+    return (Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          "LIMITLESS",
+        const Text(
+          "LaFerrari",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 32,
             color: Colors.white,
           ),
         ),
+        const SizedBox(height: 16),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 42),
+          child: const Text(
+            "The epitome of automotive excellence",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        )
       ],
     ));
   }
