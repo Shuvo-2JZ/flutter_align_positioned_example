@@ -47,7 +47,7 @@ class _MainPageState extends State<MainPage> {
           children: [
             buildBackground(),
             Positioned(
-              right: 8,
+              right: 12,
               top: 4,
               child: buildBookmark(),
             ),
@@ -82,6 +82,7 @@ class _MainPageState extends State<MainPage> {
       );
 
   Widget buildActions() => Container(
+        height: 100,
         color: Colors.white,
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: const Row(
